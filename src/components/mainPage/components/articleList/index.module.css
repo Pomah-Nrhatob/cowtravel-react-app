@@ -1,0 +1,8 @@
+.articleList_main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 5px;
+}

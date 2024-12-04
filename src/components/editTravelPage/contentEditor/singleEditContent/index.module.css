@@ -1,0 +1,59 @@
+.singleEditContent_main {
+  width: 80%;
+  padding: 20px;
+  background-color: rgba(103, 103, 103, 0.205);
+  margin-top: 25px;
+  border-radius: 5px;
+  padding: 20px;
+  border: 0.5px solid rgba(255, 0, 0, 0);
+  transition: 0.3s;
+}
+
+.singleEditContent_main:focus-within {
+  border: 1px solid rgba(255, 0, 0, 0.763);
+}
+
+.input_form {
+  background: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.panel_btnForm {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.form_btnDelete {
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.914);
+  font-size: 15px;
+  padding: 8px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1.5px solid rgba(255, 0, 0, 0.463);
+}
+
+.form_btnDelete:hover {
+  border: 1.5px solid rgba(255, 0, 0, 0.763);
+  background-color: rgba(255, 0, 0, 0.763);
+  color: rgba(255, 255, 255, 0.821);
+}
+
+.upload_file_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.image_slider_containter {
+  height: 400px;
+  width: 60%;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+}

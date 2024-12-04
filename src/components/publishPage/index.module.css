@@ -1,0 +1,71 @@
+.publishPage_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleContainer_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pannelBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 25px;
+  width: 80%;
+}
+
+.btn_red {
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.914);
+  font-size: 15px;
+  padding: 8px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1.5px solid rgba(255, 0, 0, 0.463);
+}
+
+.btn_red:hover {
+  border: 1.5px solid rgba(255, 0, 0, 0.763);
+  background-color: rgba(255, 0, 0, 0.763);
+  color: rgba(255, 255, 255, 0.821);
+}
+
+.btn_green {
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.914);
+  font-size: 15px;
+  padding: 8px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1.5px solid rgba(29, 138, 21, 0.825);
+}
+
+.btn_green:hover {
+  border: 1.5px solid rgba(29, 138, 21, 0.825);
+  background-color: rgba(29, 138, 21, 0.825);
+  color: rgba(255, 255, 255, 0.821);
+}
+
+.btnBack {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnBack:hover {
+  size: 3rem;
+  color: rgba(255, 0, 0, 0.763);
+}
+
+.btn_div {
+  display: flex;
+  gap: 10px;
+}

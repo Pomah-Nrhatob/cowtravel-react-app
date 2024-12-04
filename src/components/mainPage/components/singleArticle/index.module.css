@@ -1,0 +1,135 @@
+.singleArticle_main {
+  margin: 0 3% 0 3%;
+  width: 94%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.373);
+  padding: 5px 0 10px 0;
+}
+
+.singleArticle_containter {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(244, 244, 244);
+  transition: 0.3s;
+}
+
+.singleArticle_containter:hover {
+  background-color: rgb(237, 237, 237);
+}
+
+.headr_main {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.link_userName {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.link_userName:hover {
+  text-decoration: none;
+  color: rgb(9, 100, 192);
+}
+
+.link_date {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: rgb(152, 152, 152);
+  transition: 0.3s;
+}
+
+.link_date:hover {
+  text-decoration: none;
+  color: rgb(67, 67, 67);
+}
+
+.title {
+  width: fit-content;
+  margin-left: 15px;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.title:hover {
+  text-decoration: none;
+  color: rgb(9, 100, 192);
+}
+
+.articleInfo_main {
+  display: flex;
+  gap: 20px;
+  margin-left: 15px;
+}
+
+.info_icon_div {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.locationArr {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(9, 100, 192);
+  display: flex;
+  gap: 6px;
+}
+
+.dates {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.content_main {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.image > img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
+}
+
+.panelBtn_main {
+  display: flex;
+  margin-left: 15px;
+}
+
+.panelBtn_main > button {
+  border: 1px solid rgb(21, 161, 10);
+  background: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.panelBtn_main > button:hover {
+  background: rgb(21, 161, 10);
+  color: white;
+}

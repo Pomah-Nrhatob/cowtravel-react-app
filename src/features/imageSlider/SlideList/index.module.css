@@ -1,0 +1,64 @@
+.slideList_main {
+  width: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.singleSlide {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.singleSlide > img {
+  background-color: black;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.singleSlide > i {
+  margin-left: 0;
+  font-size: 15px;
+}
+
+.panelBtn {
+  display: flex;
+  align-items: center;
+}
+
+.panelBtn > svg {
+  cursor: pointer;
+  margin-right: 10px;
+  color: rgba(255, 0, 0, 0.421);
+  transition: 0.3s;
+}
+
+.panelBtn > svg:hover {
+  color: rgba(255, 0, 0, 0.788);
+}
+
+.inputForm {
+  width: 100%;
+}
+
+.inputForm > input {
+  background: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.singleSlide_main {
+  width: 100%;
+  height: 100%;
+}

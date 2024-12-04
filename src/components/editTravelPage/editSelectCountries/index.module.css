@@ -1,0 +1,136 @@
+.editSelectCoutry_main {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.266);
+  padding-bottom: 20px;
+}
+
+.editSelectCoutry_main > h2 {
+  color: rgb(0, 0, 0);
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.editCountry {
+  width: fit-content;
+}
+
+.input_active {
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0);
+  border: #356184 1.5px solid;
+  width: 300px;
+  color: #000000;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.input_deactive {
+  border: #35618462 1.5px solid;
+  border-radius: 3px;
+  background: rgba(75, 75, 75, 0);
+  width: 300px;
+  color: #000000;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.input_deactive:hover {
+  border: #356184 1.5px solid;
+}
+
+.input_active > input,
+.input_deactive > input {
+  border: none;
+  background: none;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  padding: 5px;
+  outline: none;
+  color: #000000;
+  padding: 5px;
+}
+
+.countryList_ul {
+  height: 30vh;
+  width: 300px;
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 5px;
+  border: #356184 1.5px solid;
+  border-top: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin: 0;
+  position: absolute;
+  z-index: 9;
+  overflow: auto;
+  background-color: #dcdcdc;
+}
+
+.countryList_ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+.countryList_ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 2px;
+  background: none;
+}
+
+.countryList_ul::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  height: 30px;
+  background-color: #356184;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    color-stop(0.5, rgba(255, 255, 255, 0.25)),
+    color-stop(0.5, transparent),
+    to(transparent)
+  );
+}
+
+.countryList_ul > div > li {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  padding-bottom: 3px;
+  border-bottom: #356184 1px solid;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+
+.selectedCountry_list {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.selectedCountry_main {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  background-color: #35618439;
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: #35618400 1.5px solid;
+  transition: 0.3s;
+}
+
+.selectedCountry_main:hover {
+  border: #2673b2 1.5px solid;
+}
+
+.btn_delete:hover {
+  color: red;
+}

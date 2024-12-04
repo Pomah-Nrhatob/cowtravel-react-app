@@ -1,0 +1,29 @@
+.save_btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save_btn > button {
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.79);
+  font-size: 15px;
+  padding: 8px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1.5px solid rgba(255, 0, 0, 0.463);
+  margin: 10px;
+}
+
+.save_btn > button:hover {
+  border: 1.5px solid rgba(255, 0, 0, 0.763);
+  background-color: rgba(255, 0, 0, 0.763);
+  color: rgba(255, 255, 255, 0.79);
+}
+
+.save_btn > p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 0, 0, 0.763);
+}

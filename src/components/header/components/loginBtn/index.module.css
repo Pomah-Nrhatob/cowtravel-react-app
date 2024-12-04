@@ -1,0 +1,39 @@
+.login_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 15px;
+  margin-right: 25px;
+}
+
+.login_btn > button {
+  font-family: "Motserrat", sans-serif;
+  font-size: 15px;
+  padding: 8px 17px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn_white {
+  border: 1.5px solid rgba(0, 0, 0, 0.215);
+  background-color: rgba(0, 0, 0, 0.215);
+}
+
+.btn_white:hover {
+  border: 1.5px solid rgba(0, 0, 0, 0.378);
+  background-color: rgba(0, 0, 0, 0.378);
+}
+
+.btn_red {
+  border: 1.5px solid rgb(255, 0, 0);
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.btn_red:hover {
+  border: 1.5px solid rgb(197, 17, 17);
+  color: rgb(255, 255, 255);
+  background-color: rgb(197, 17, 17);
+}

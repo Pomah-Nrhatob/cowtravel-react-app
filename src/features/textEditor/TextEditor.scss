@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url(/client/public/Montserrat_font/Montserrat-Light.ttf);
+}
+
+.TextEditor {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  h1,
+  h2 {
+    margin: revert !important;
+  }
+
+  h1 {
+    line-height: 36px;
+  }
+
+  h2 {
+    line-height: 24px;
+  }
+
+  ol,
+  ul {
+    margin: 0 0 10px 25px;
+  }
+
+  &-Wrapper {
+    padding: 16px;
+  }
+
+  .DraftEditor-root {
+    & .public-DraftEditorPlaceholder-root {
+      color: red;
+      opacity: 0.5;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem,
+    .public-DraftStyleDefault-unorderedListItem {
+      position: unset;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem {
+      list-style-type: unset;
+    }
+
+    & .public-DraftStyleDefault-orderedListItem::before {
+      display: none;
+    }
+  }
+
+  .DraftEditor-editorContainer {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 7px;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(246, 0, 0, 0.573);
+      border-radius: 5px;
+    }
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 350px;
+    color: inherit;
+    overflow-y: scroll;
+  }
+
+  position: relative;
+  box-sizing: border-box;
+
+  &-Title {
+    opacity: 0.5;
+    color: red;
+    margin-bottom: 4px;
+  }
+
+  &-Area {
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, 0.266);
+  }
+
+  &-Sub {
+    &-Buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.266);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.266);
+    color: red;
+    padding: 20px;
+  }
+}
+
+.TextEditor-Wrapper {
+  &__hidePlaceholder .public-DraftEditorPlaceholder-root {
+    display: none;
+  }
+
+  padding: 0;
+}

@@ -1,0 +1,46 @@
+.editTravel_main {
+  width: 80%;
+  min-height: 150px;
+  background-color: rgba(103, 103, 103, 0.205);
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 20px;
+  border: 0.5px solid rgba(255, 0, 0, 0.01);
+  transition: 0.3s;
+  position: relative;
+}
+
+.editTravel_main:focus-within {
+  border: 0.5px solid rgba(255, 0, 0, 0.763);
+}
+
+.editTravel_main > h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.777);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.266);
+  margin: 5px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.editTravel_main > button {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.79);
+  font-size: 15px;
+  padding: 6px 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid rgba(28, 131, 35, 0.386);
+}
+
+.editTravel_main > button:hover {
+  border: 2px solid rgba(28, 131, 35, 0.792);
+  background-color: rgba(28, 131, 35, 0.792);
+  color: rgba(220, 220, 220, 0.963);
+}

@@ -1,0 +1,23 @@
+.editTravel_main {
+  width: 80%;
+  min-height: 150px;
+  background-color: rgba(103, 103, 103, 0.205);
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 20px;
+  border: 0.5px solid rgba(255, 0, 0, 0.01);
+  transition: 0.3s;
+}
+
+.editTravel_main:focus-within {
+  border: 0.5px solid rgba(255, 0, 0, 0.763);
+}
+
+.editTravel_main > h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.753);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.266);
+  margin: 25px 5px;
+  padding-bottom: 10px;
+}

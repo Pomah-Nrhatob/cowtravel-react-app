@@ -1,0 +1,16 @@
+.link {
+  border: 1.5px solid rgba(22, 77, 101, 0);
+  background: none;
+  font-family: "Motserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.79);
+  font-size: 20px;
+  padding: 7px 7px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: rgb(22, 77, 101);
+  border: 1.5px solid rgba(22, 77, 101, 0.951);
+}

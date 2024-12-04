@@ -1,0 +1,22 @@
+.header_main {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.352);
+  background-color: rgb(222, 239, 246);
+}
+
+.btn_panel {
+  margin-right: 20px;
+}
+
+.icon > img {
+  width: 120px;
+  margin-left: 30px;
+  cursor: pointer;
+}

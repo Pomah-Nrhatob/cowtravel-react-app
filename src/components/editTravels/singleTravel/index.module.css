@@ -1,0 +1,58 @@
+.singleTravel_main {
+  width: 90%;
+  background-color: rgba(232, 232, 232, 0.601);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.singleTravel_main:hover {
+  background-color: rgba(232, 232, 232, 0.895);
+}
+
+.singleTravel_main > h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.panel_btn {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+.btn_change {
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid rgba(12, 158, 12, 0.504);
+  border-radius: 3px;
+  color: black;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+.btn_delete {
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid rgba(177, 15, 15, 0.59);
+  border-radius: 3px;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+.btn_change:hover {
+  background: rgba(12, 158, 12, 0.504);
+  color: white;
+}
+
+.btn_delete:hover {
+  background: rgba(177, 15, 15, 0.59);
+  color: white;
+}
+
+.date {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(98, 98, 98);
+}

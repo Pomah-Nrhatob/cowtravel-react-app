@@ -1,0 +1,11 @@
+.chapter_main {
+  font-family: "Montserrat", sans-serif;
+}
+
+.chapter_main > h2 {
+  text-align: center;
+}
+
+.content {
+  text-align: left;
+}

@@ -1,0 +1,15 @@
+.FormatButton {
+  &-Active {
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.FormatButton:hover {
+  color: red;
+}
