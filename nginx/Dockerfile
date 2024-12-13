@@ -1,7 +1,7 @@
-FROM nginx:stable-alpine
+FROM nginx:latest
 
-COPY /usr/src/app/build /usr/share/nginx/html
+COPY . /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/conf.d/defauilt.conf
+COPY nginx.conf /etc/nginx/
 
 CMD ["nginx", "-g", "daemon off;"]
