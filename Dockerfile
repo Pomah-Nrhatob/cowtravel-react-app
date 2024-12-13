@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . .
 
@@ -20,4 +20,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8000
 
 CMD ["nginx", "-g", "daemon off;"]
+
+
 
