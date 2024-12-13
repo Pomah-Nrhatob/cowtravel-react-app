@@ -15,7 +15,7 @@ FROM nginx:stable-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/defauilt.conf
-COPY privkey.pem /etc/letsencrypt/live/cowtravel.ru/privkey.pem
-COPY fullchain.pem /etc/letsencrypt/live/cowtravel.ru/fullchain.pem
+COPY /etc/letsencrypt/live/cowtravel.ru/privkey.pem /etc/nginx/conf.d/defauilt.conf
+COPY /etc/letsencrypt/live/cowtravel.ru/fullchain.pem /etc/nginx/conf.d/defauilt.conf
 
 CMD ["nginx", "-g", "daemon off;"]
