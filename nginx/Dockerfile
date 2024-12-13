@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:latest
 
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
