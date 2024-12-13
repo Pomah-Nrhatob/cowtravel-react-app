@@ -15,6 +15,5 @@ FROM nginx:stable-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/defauilt.conf
-VOLUME [ "/etc/letsencrypt/live/cowtravel.ru/" ]
 
 CMD ["nginx", "-g", "daemon off;"]
