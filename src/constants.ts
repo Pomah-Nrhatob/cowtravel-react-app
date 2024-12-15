@@ -1,1 +1,1 @@
-export const BASE_URL = "https://cowtravel.ru:3000";
+export const BASE_URL = "http://cowtravel.ru:3000";
