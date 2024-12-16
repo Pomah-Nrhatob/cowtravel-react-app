@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <header className={styles.header_main}>
       <div onClick={() => navigate("/")} className={styles.icon}>
-        <img src="../../../public/icons/icon.png" />
+        <img src="https://cowtravel.ru/public/icons/icon.png" />
         иконка
       </div>
       <div></div>
