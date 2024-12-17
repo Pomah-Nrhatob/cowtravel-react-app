@@ -5,6 +5,7 @@ import { selectCurrent } from "../../features/userSlice";
 import { UserProfile } from "./components/userProfile";
 import { LoginBtn } from "./components/loginBtn";
 import { useNavigate } from "react-router-dom";
+import img from "../../../public/icons/icon.png";
 
 export const Header = () => {
   const userInfo = useSelector(selectCurrent);
@@ -13,7 +14,7 @@ export const Header = () => {
   return (
     <header className={styles.header_main}>
       <div onClick={() => navigate("/")} className={styles.icon}>
-        <img src="https://cowtravel.ru/public/icons/icon.png" />
+        <img src={img} alt="icon" />
         иконка
       </div>
       <div></div>
