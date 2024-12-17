@@ -15,7 +15,6 @@ export const Header = () => {
     <header className={styles.header_main}>
       <div onClick={() => navigate("/")} className={styles.icon}>
         <img src={img} alt="icon" />
-        иконка
       </div>
       <div></div>
       <div className={styles.btn_panel}>
