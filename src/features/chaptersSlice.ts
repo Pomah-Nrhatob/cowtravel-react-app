@@ -21,6 +21,7 @@ const chaptersSlice = createSlice({
           updatedAt: null,
           travelId: "",
           images: [],
+          seqNumber: null,
         },
       ];
     },

@@ -1,4 +1,10 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { EditForm } from "../editForm";
 import styles from "./index.module.css";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -13,6 +19,9 @@ import { selectTravelInfo } from "../../../features/oneTravelInfoSlice";
 import { Travel } from "../../../app/types";
 import { useLazyGetChaptersQuery } from "../../../app/services/chapterApi";
 import { ContentEditor } from "../contentEditor";
+import { selectChapters } from "../../../features/chaptersSlice";
+import { Tooltip, TooltipRefProps } from "react-tooltip";
+import useOutsideAlerter from "../../../utils/useOutsideAlertet";
 
 export const EditorTravel: React.FC = () => {
   const id = useLocation().pathname.split("/")[2];
@@ -81,6 +90,7 @@ export const EditorTravel: React.FC = () => {
   const [updateTravel] = useUpdateTravelMutation();
   const [getTravel, { isLoading }] = useLazyGetOneTravelQuery();
   const [getChapters] = useLazyGetChaptersQuery();
+  const chapters = useSelector(selectChapters);
 
   const handleSave = async (data: Travel) => {
     try {
@@ -98,12 +108,50 @@ export const EditorTravel: React.FC = () => {
     removeTravel(index);
   };
 
+  const publishButton = () => {
+    navigate(`/edittravels/publish/${id}`);
+  };
+
+  const handleCheckChapters = () => {
+    if (chapters.length > 0) {
+      if (chapters[0].id) {
+        publishButton();
+      } else {
+        setShowTooltip(true);
+      }
+    } else {
+      setShowTooltip(true);
+    }
+  };
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const clickOutside = useRef(null);
+
+  const closeTooltip = () => {
+    setShowTooltip(false);
+  };
+
+  useOutsideAlerter(clickOutside, closeTooltip);
+
   return (
     <>
       <div tabIndex={0} className={styles.editTravel_main}>
-        <button onClick={() => navigate(`/edittravels/publish/${id}`)}>
+        <button
+          ref={clickOutside}
+          data-tooltip-id="tooltip2"
+          onClick={handleCheckChapters}
+        >
           {travelInfo.isPublished ? "Внести изменения" : "Опубликовать"}
         </button>
+        <Tooltip
+          data-tooltip-delay-show={20}
+          isOpen={showTooltip}
+          id="tooltip2"
+          content="Для публикации необходимы заполненные главы"
+          place="left"
+          className={styles.tooltip_rounded}
+        />
         <h1>Создание статьи</h1>
         {isLoading ? (
           <BarLoader color="#A2A2FF" />

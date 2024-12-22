@@ -23,6 +23,7 @@ type Props = {
   removeDates: () => void;
   imageForMainPage: ImageForMainPage | null;
   travelId: string | null;
+  isNewTravel?: boolean;
 };
 
 export const EditForm: React.FC<Props> = ({
@@ -40,6 +41,7 @@ export const EditForm: React.FC<Props> = ({
   dateTravelFromStore,
   imageForMainPage,
   travelId,
+  isNewTravel,
 }) => {
   const [save, setSave] = useState(true);
 
@@ -50,7 +52,9 @@ export const EditForm: React.FC<Props> = ({
   return (
     <form onSubmit={onSubmit}>
       <EditTitle name="title" placeholder={placeholder} control={control} />
-      <EditImageForMainPage image={imageForMainPage} travelId={travelId} />
+      {isNewTravel ? null : (
+        <EditImageForMainPage image={imageForMainPage} travelId={travelId} />
+      )}
       <EditSelectCountries
         fields={countriesList}
         addTravel={addTravel}

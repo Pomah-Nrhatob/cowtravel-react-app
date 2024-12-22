@@ -25,9 +25,7 @@
 }
 
 .editTravel_main > button {
-  position: absolute;
-  right: 0;
-  margin-right: 20px;
+  float: right;
   background: none;
   font-family: "Motserrat", sans-serif;
   color: rgba(0, 0, 0, 0.79);
@@ -43,4 +41,11 @@
   border: 2px solid rgba(28, 131, 35, 0.792);
   background-color: rgba(28, 131, 35, 0.792);
   color: rgba(220, 220, 220, 0.963);
+}
+
+.tooltip_rounded {
+  border-radius: 5px !important;
+  background-color: #af4c4c !important;
+  color: white !important;
+  padding: 10px !important;
 }

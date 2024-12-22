@@ -13,6 +13,7 @@ import { BarLoader } from "react-spinners";
 import styles from "./index.module.css";
 import { Chapter } from "../../../../app/types";
 import { Tooltip, TooltipRefProps } from "react-tooltip";
+import useOutsideAlerter from "../../../../utils/useOutsideAlertet";
 
 type Props = {
   travelId: string;
@@ -24,21 +25,27 @@ export const ContentEditList: React.FC<Props> = ({ travelId }) => {
   const [getChapters, { isLoading }] = useLazyGetChaptersQuery();
   const [saveNewChapter, setSaveNewChapter] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  const tooltipRef1 = useRef<TooltipRefProps>(null);
+  const clickOutside = useRef(null);
 
   const addNewChapter = () => {
     dispatch(addNewChapterReducer(""));
-    setShowTooltip(true);
+    setShowTooltip(false);
   };
 
   const handleCheckChapters = () => {
     if (chapters.length > 0) {
-      chapters[chapters.length - 1].id == ""
-        ? tooltipRef1.current?.open()
-        : addNewChapter();
+      if (chapters[chapters.length - 1].id == "") {
+        setShowTooltip(true);
+      } else {
+        addNewChapter();
+      }
     } else {
       addNewChapter();
     }
+  };
+
+  const closeTooltip = () => {
+    setShowTooltip(false);
   };
 
   useEffect(() => {
@@ -50,6 +57,15 @@ export const ContentEditList: React.FC<Props> = ({ travelId }) => {
     setShowTooltip(false);
   }, [saveNewChapter]);
 
+  useOutsideAlerter(clickOutside, closeTooltip);
+
+  const createSeqNumber = (index: number) => {
+    if (index < 1) {
+      return 1;
+    }
+    return chapters[index - 1].seqNumber + 1;
+  };
+
   return (
     <div className={styles.contentEditList_main}>
       {isLoading ? (
@@ -59,6 +75,7 @@ export const ContentEditList: React.FC<Props> = ({ travelId }) => {
           {chapters.length !== 0 ? (
             chapters.map((el, index) => (
               <SingleEditContent
+                seqNumber={el.seqNumber ? el.seqNumber : createSeqNumber(index)}
                 arrayIndex={index}
                 saveNewChapter={saveNewChapter}
                 setSaveNewChapter={setSaveNewChapter}
@@ -74,20 +91,21 @@ export const ContentEditList: React.FC<Props> = ({ travelId }) => {
             <p>Глав пока не добавлено</p>
           )}
           <div>
-            <button data-tooltip-id="tooltip1" onClick={handleCheckChapters}>
+            <button
+              ref={clickOutside}
+              data-tooltip-id="tooltip1"
+              onClick={handleCheckChapters}
+            >
               Добавить главу
             </button>
-            {showTooltip ? (
-              <Tooltip
-                ref={tooltipRef1}
-                data-tooltip-delay-show={20}
-                events={["click"]}
-                id="tooltip1"
-                content="Добавте текст в предыдущую главу, прежде чем создать новую"
-                place="right"
-                className={styles.tooltip_rounded}
-              />
-            ) : null}
+            <Tooltip
+              data-tooltip-delay-show={20}
+              isOpen={showTooltip}
+              id="tooltip1"
+              content="Добавте текст в предыдущую главу, прежде чем создать новую"
+              place="right"
+              className={styles.tooltip_rounded}
+            />
           </div>
         </div>
       )}

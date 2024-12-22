@@ -40,6 +40,7 @@ export type Chapter = {
   updatedAt: Date | null;
   travelId: string | null;
   images: Image[] | undefined | null;
+  seqNumber: number | null;
 };
 
 export type Image = {

@@ -18,9 +18,9 @@ export const NewTravel: React.FC = () => {
     mode: "onChange",
     reValidateMode: "onBlur",
     defaultValues: {
-      title: "",
-      countries: null,
-      dateTravel: null,
+      title: null,
+      countries: [],
+      dateTravel: [{ name: null }, { name: null }],
     },
   });
 
@@ -84,6 +84,7 @@ export const NewTravel: React.FC = () => {
     <div tabIndex={0} className={styles.editTravel_main}>
       <h1>Создание статьи</h1>
       <EditForm
+        isNewTravel={true}
         dateTravelFromStore={travelInfo.dateTravel}
         addDates={addDates}
         removeDates={removeDates}

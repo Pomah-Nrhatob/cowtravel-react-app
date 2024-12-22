@@ -16,7 +16,7 @@ export const Header = () => {
       <div onClick={() => navigate("/")} className={styles.icon}>
         <img src={img} alt="icon" />
       </div>
-      <div>поиск</div>
+      <div></div>
       <div className={styles.btn_panel}>
         {userInfo ? <UserProfile userInfo={userInfo} /> : <LoginBtn />}
       </div>

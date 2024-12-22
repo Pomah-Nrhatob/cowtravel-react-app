@@ -27,6 +27,7 @@ type Props = {
   saveNewChapter: boolean;
   setSaveNewChapter: (arg: boolean) => void;
   arrayIndex?: number;
+  seqNumber: number | null | undefined;
 };
 
 export const SingleEditContent: React.FC<Props> = ({
@@ -38,6 +39,7 @@ export const SingleEditContent: React.FC<Props> = ({
   saveNewChapter,
   setSaveNewChapter,
   arrayIndex,
+  seqNumber,
 }) => {
   const {
     register,
@@ -48,7 +50,7 @@ export const SingleEditContent: React.FC<Props> = ({
   } = useForm<Chapter>({
     mode: "onChange",
     reValidateMode: "onBlur",
-    defaultValues: { title, content },
+    defaultValues: { title, content, seqNumber },
   });
 
   const dispatch = useDispatch();
@@ -60,7 +62,10 @@ export const SingleEditContent: React.FC<Props> = ({
   const handleSave = async (data: Chapter) => {
     if (isDirty) {
       try {
-        await updateChapter({ ...data, id: id }).unwrap();
+        await updateChapter({
+          ...data,
+          id: id,
+        }).unwrap();
       } catch (error) {
         console.log(error);
       }
@@ -100,7 +105,7 @@ export const SingleEditContent: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    reset({ title, content });
+    reset({ title, content, seqNumber });
   }, []);
 
   const [isModalActive, setModalActive] = useState(false);

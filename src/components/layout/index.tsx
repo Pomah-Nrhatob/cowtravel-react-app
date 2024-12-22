@@ -20,11 +20,11 @@ export const Layout = () => {
     <div className={styles.layout}>
       <Header />
       <Container>
-        <div className={styles.left}>левая часть</div>
+        <div className={styles.left}></div>
         <div className={styles.center}>
           <Outlet />
         </div>
-        {/* <div className={styles.right}>Права часть</div> */}
+        <div className={styles.right}></div>
       </Container>
     </div>
   );

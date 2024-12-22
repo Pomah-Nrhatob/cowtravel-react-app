@@ -5,10 +5,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 60px;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.352);
-  background-color: rgb(222, 239, 246);
+  background-image: linear-gradient(
+    to right,
+    #eceef2,
+    #c2d0ef,
+    #98b3eb,
+    #6c96e6,
+    #3479e0
+  );
 }
 
 .btn_panel {
