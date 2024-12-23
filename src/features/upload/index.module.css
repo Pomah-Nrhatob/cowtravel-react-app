@@ -5,6 +5,12 @@
   height: 400px;
 }
 
+@media screen and (orientation: portrait) {
+  .dragAndDrop_container {
+    width: 100%;
+  }
+}
+
 .selectedImage_main {
   min-height: 20%;
   width: 100%;

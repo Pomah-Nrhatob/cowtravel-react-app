@@ -21,6 +21,12 @@
   font-size: 20px;
 }
 
+@media screen and ((orientation: portrait)) {
+  .sort_btn {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .sort_singleBtn_deActive {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;

@@ -46,6 +46,7 @@ export const TravelList: React.FC = () => {
         draftList.map((el) => {
           return (
             <SingleTravel
+              isPublished={el.isPublished}
               createdAt={el.createdAt}
               key={el.id}
               id={el.id}
@@ -57,6 +58,7 @@ export const TravelList: React.FC = () => {
         publishedTravelList.map((el) => {
           return (
             <SingleTravel
+              isPublished={el.isPublished}
               createdAt={el.createdAt}
               key={el.id}
               id={el.id}

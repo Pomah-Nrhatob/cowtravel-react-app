@@ -66,7 +66,7 @@ export const ImageSlider: FC<Props> = ({ chapterId, images, showPanelBtn }) => {
       className={styles.imageSlider_main}
     >
       {images?.length ? (
-        <div>
+        <div className={styles.slider}>
           <Arrows changeSlide={changeSlide} />
           <SlideList
             showPanelBtn={showPanelBtn}

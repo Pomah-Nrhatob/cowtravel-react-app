@@ -56,3 +56,10 @@
   font-family: "Montserrat", sans-serif;
   color: rgb(98, 98, 98);
 }
+
+.tooltip_rounded {
+  border-radius: 5px !important;
+  background-color: #af4c4c !important;
+  color: white !important;
+  padding: 10px !important;
+}

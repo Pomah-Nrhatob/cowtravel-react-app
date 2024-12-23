@@ -18,3 +18,14 @@
 .right {
   width: 15%;
 }
+
+@media screen and (orientation: portrait) {
+  .right,
+  .left {
+    display: none;
+  }
+
+  .center {
+    width: 100%;
+  }
+}

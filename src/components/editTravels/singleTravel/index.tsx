@@ -6,14 +6,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../../../ui/Modal/Modal";
 import moment from "moment";
+import { Tooltip } from "react-tooltip";
 
 type Props = {
   id: string | null;
   title: string | null;
   createdAt: Date | null;
+  isPublished: boolean | null;
 };
 
-export const SingleTravel: React.FC<Props> = ({ id, title, createdAt }) => {
+export const SingleTravel: React.FC<Props> = ({
+  id,
+  title,
+  createdAt,
+  isPublished,
+}) => {
   const [deleteTravel] = useDeleteTravelMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,6 +44,16 @@ export const SingleTravel: React.FC<Props> = ({ id, title, createdAt }) => {
     }
   };
 
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const openTooltip = () => {
+    setShowTooltip(true);
+  };
+
+  const closeTooltip = () => {
+    setShowTooltip(false);
+  };
+
   return (
     <div className={styles.singleTravel_main}>
       <h2>{title}</h2>
@@ -47,10 +64,21 @@ export const SingleTravel: React.FC<Props> = ({ id, title, createdAt }) => {
         <button
           className={styles.btn_delete}
           type="button"
-          onClick={handleModalOpen}
+          onClick={isPublished ? openTooltip : handleModalOpen}
+          data-tooltip-id="tooltip3"
+          onBlur={closeTooltip}
+          onMouseOut={closeTooltip}
         >
           Удалить
         </button>
+        <Tooltip
+          data-tooltip-delay-show={20}
+          isOpen={showTooltip}
+          id="tooltip3"
+          content="Чтобы удалить черновик-удалите публикацию"
+          place="right"
+          className={styles.tooltip_rounded}
+        />
         <div>
           {isModalActive && (
             <Modal
