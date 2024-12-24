@@ -3,8 +3,8 @@
   z-index: 50;
   margin-top: auto;
   margin-bottom: auto;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   top: 50%;
   bottom: 0;
   text-align: center;
@@ -13,10 +13,10 @@
 }
 
 .allows_container > svg {
-  color: rgba(255, 255, 255, 0.39);
+  color: rgba(31, 97, 221, 0.878);
   transition: 0.3s;
 }
 
 .allows_container > svg:hover {
-  color: rgba(255, 255, 255, 0.884);
+  color: rgba(31, 97, 221, 0.351);
 }

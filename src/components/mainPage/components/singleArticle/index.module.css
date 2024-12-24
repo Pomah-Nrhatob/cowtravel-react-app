@@ -1,7 +1,7 @@
 .singleArticle_main {
   margin: 0 3% 0 3%;
   width: 94%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.373);
+  border-bottom: 1px solid rgb(255, 255, 255);
   padding: 5px 0 10px 0;
 }
 
@@ -15,12 +15,12 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(255, 255, 255);
   transition: 0.3s;
 }
 
 .singleArticle_containter:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(243, 243, 243);
 }
 
 .headr_main {
@@ -104,18 +104,17 @@
 }
 
 .image {
-  background-color: black;
   display: flex;
   justify-content: center;
-  width: 90%;
-  max-height: 400px;
+  width: 70%;
+  max-height: 300px;
   border-radius: 5px;
 }
 
 .image > img {
   border-radius: 5px;
-  object-fit: scale-down;
-  width: 90%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .panelBtn_main {

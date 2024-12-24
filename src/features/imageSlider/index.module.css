@@ -11,6 +11,10 @@
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   text-align: center;
+  /* background-color: rgb(220, 220, 220); */
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .slider {

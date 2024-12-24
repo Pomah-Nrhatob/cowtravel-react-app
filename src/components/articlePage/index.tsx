@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectArticleInfo } from "../../features/articleSlice";
 import { ArticleContainer } from "../articleContainer";
 import { MoonLoader } from "react-spinners";
+import styles from "./index.module.css";
 
 export const ArticlePageContainer = () => {
   const articleId = useLocation().pathname.split("/")[2];
@@ -27,7 +28,7 @@ export const ArticlePageContainer = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.articleContainer}>
       {isLoading ? (
         <MoonLoader />
       ) : (
