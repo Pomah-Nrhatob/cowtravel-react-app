@@ -13,6 +13,7 @@
   /* border-right: 1px solid rgba(0, 0, 0, 0.388);
   border-left: 1px solid rgba(0, 0, 0, 0.388); */
   width: 60%;
+  max-width: 800px;
 }
 
 .right {
@@ -28,4 +29,16 @@
   .center {
     width: 100%;
   }
+
+  .btn_up {
+    display: none;
+  }
+}
+
+.btn_up {
+  cursor: pointer;
+  bottom: 10%;
+  position: fixed;
+  font-size: 3rem;
+  color: rgba(128, 128, 128, 0.467);
 }

@@ -1,0 +1,35 @@
+.tableOfContents_main {
+  background-color: rgba(48, 80, 148, 0.263);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.tableOfContents_main > h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.chaptersList {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chaptersList > button {
+  background: none;
+  font-size: 15px;
+}
+
+.chaptersList > button:hover {
+  text-decoration: underline;
+}
+
+@media screen and (orientation: portrait) {
+  .chaptersList > button:active {
+    text-decoration: underline;
+  }
+}

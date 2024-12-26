@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { ChapterForArticle } from "./chapterForArticle";
 import { Image } from "../../app/types";
@@ -7,6 +7,7 @@ import { Header } from "../mainPage/components/singleArticle/header";
 import { Title } from "../mainPage/components/singleArticle/title";
 import { ArticleInfo } from "../mainPage/components/singleArticle/articleInfo";
 import { Content } from "../mainPage/components/singleArticle/content";
+import { TableOfContents } from "./tableOfContents";
 
 export type Chapter = {
   title: string | null;
@@ -45,6 +46,26 @@ export const ArticleContainer: React.FC<Props> = ({
     setChaptersState(chapters);
   }, [chapters]);
 
+  const [indexForScroll, setIndexFroScroll] = useState<number | null>(null);
+  const ref = useRef(null);
+
+  const handleButtonClick = () => {
+    window.scrollTo({
+      top: ref.current.offsetTop - 60,
+    });
+  };
+
+  const handleScroll = (i: number) => {
+    setIndexFroScroll(i);
+  };
+
+  useEffect(() => {
+    if (ref.current) {
+      handleButtonClick();
+      setIndexFroScroll(null);
+    }
+  }, [indexForScroll]);
+
   return (
     <div className={styles.article_main}>
       <div className={styles.header_article}>
@@ -60,10 +81,15 @@ export const ArticleContainer: React.FC<Props> = ({
         />
         <Content imagePath={imagePath} />
       </div>
+      <TableOfContents handleScroll={handleScroll} chapters={chaptersState} />
       <div className={styles.chapter_list}>
-        {chaptersState?.map((chapter) => {
+        {chaptersState?.map((chapter, index) => {
           return (
-            <div className={styles.chapterWithImage} key={chapter.chapterId}>
+            <div
+              ref={indexForScroll == index ? ref : null}
+              className={styles.chapterWithImage}
+              key={chapter.chapterId}
+            >
               <ChapterForArticle chapterInfo={chapter} />
               {chapter.images?.length ? (
                 <div className={styles.imageSlider_container}>
