@@ -17,6 +17,7 @@ import {
 import { Modal } from "../../../../ui/Modal/Modal";
 import { Upload } from "../../../../features/upload";
 import { ImageSlider } from "../../../../features/imageSlider";
+import { toast, ToastContainer } from "react-toastify";
 
 type Props = {
   title: string | null;
@@ -59,6 +60,18 @@ export const SingleEditContent: React.FC<Props> = ({
   const [createChapter] = useCreateChapterMutation();
   const [deleteChapter] = useDeleteChapterMutation();
 
+  const successSaveChapter = () =>
+    toast.success("Изменения сохранены", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   const handleSave = async (data: Chapter) => {
     if (isDirty) {
       try {
@@ -66,6 +79,7 @@ export const SingleEditContent: React.FC<Props> = ({
           ...data,
           id: id,
         }).unwrap();
+        successSaveChapter();
       } catch (error) {
         console.log(error);
       }
@@ -75,14 +89,16 @@ export const SingleEditContent: React.FC<Props> = ({
 
   const contentRef = useRef(null);
 
+  const dispatchChapterToStore = (data: any) => {
+    dispatch(addChapterWithId({ ...data, images: [] }));
+    dispatch(deleteChapterReducer(arrayIndex));
+  };
+
   const handleCreateChapter = async (data: Chapter) => {
     if (isDirty) {
       try {
-        const res = await createChapter({ ...data, travelId });
-        if (res.data) {
-          dispatch(addChapterWithId({ ...res.data, images: [] }));
-          dispatch(deleteChapterReducer(arrayIndex));
-        }
+        const res = await createChapter({ ...data, travelId }).unwrap();
+        dispatchChapterToStore(res);
       } catch (error) {
         console.log(error);
       }
@@ -144,6 +160,7 @@ export const SingleEditContent: React.FC<Props> = ({
           control={control}
           defaultValue=""
         />
+        <ToastContainer />
         {id ? (
           <div className={styles.upload_file_main}>
             <Upload chapterId={id} />

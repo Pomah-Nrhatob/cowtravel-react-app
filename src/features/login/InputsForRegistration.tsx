@@ -14,6 +14,7 @@ import { BarLoader } from "react-spinners";
 type Register = {
   email: string;
   password: string;
+  confirmPassword: string;
   name: string;
 };
 
@@ -31,12 +32,14 @@ export const InputsForRegistration: React.FC<Props> = ({
     handleSubmit,
     control,
     formState: { errors },
+    watch,
   } = useForm<Register>({
     mode: "onChange",
     reValidateMode: "onBlur",
     defaultValues: {
       email: "",
       password: "",
+      confirmPassword: "",
       name: "",
     },
   });
@@ -60,6 +63,13 @@ export const InputsForRegistration: React.FC<Props> = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.inputs_main}>
       <Input
+        rules={{
+          required: "Введите почту",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "Введите корректную почту",
+          },
+        }}
         name="email"
         label=""
         control={control}
@@ -67,13 +77,27 @@ export const InputsForRegistration: React.FC<Props> = ({
         placeholder="email"
       />
       <Input
+        rules={{
+          required: "Введите свой никнейм",
+          minLength: {
+            value: 3,
+            message: "Никнейм должен иметь не менее 3 символов",
+          },
+        }}
         name="name"
         label=""
         control={control}
         type="text"
-        placeholder="username"
+        placeholder="никнейм"
       />
       <Input
+        rules={{
+          required: "Введите пароль",
+          minLength: {
+            value: 8,
+            message: "Пароль должен иметь не менее 8 символов",
+          },
+        }}
         name="password"
         label=""
         control={control}
@@ -81,8 +105,16 @@ export const InputsForRegistration: React.FC<Props> = ({
         placeholder="пароль"
       />
       <Input
-        name="password"
-        label="повторите пароль"
+        rules={{
+          required: "Введите пароль еще раз",
+          validate: (match: string) => {
+            if (watch("password") !== match) {
+              return "Введенные пароли не совпадают";
+            }
+          },
+        }}
+        name="confirmPassword"
+        label=""
         control={control}
         type="password"
         placeholder="повторите пароль"

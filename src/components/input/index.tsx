@@ -9,6 +9,7 @@ type Props = {
   label: string;
   control: Control<any>;
   required?: string;
+  rules?: any;
 };
 
 export const Input: React.FC<Props> = ({
@@ -17,7 +18,7 @@ export const Input: React.FC<Props> = ({
   placeholder,
   label,
   control,
-  required = "",
+  rules,
 }) => {
   const {
     field,
@@ -26,7 +27,7 @@ export const Input: React.FC<Props> = ({
   } = useController({
     name,
     control,
-    rules: { required },
+    rules: rules,
   });
 
   return (
@@ -42,6 +43,13 @@ export const Input: React.FC<Props> = ({
         type={type}
         placeholder={placeholder}
       />
+      {errors[`${name}`]?.message ? (
+        <span className={styles.span_error}>
+          * {errors[`${name}`]?.message}
+        </span>
+      ) : (
+        ""
+      )}
     </>
   );
 };

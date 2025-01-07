@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../../components/errorMessage";
 import { hasErrorField } from "../../utils/hasErrorfield";
 import { BarLoader } from "react-spinners";
+import { toast, ToastContainer } from "react-toastify";
 
 type Login = {
   email: string;
@@ -31,9 +32,9 @@ export const InputsForLogin: React.FC = () => {
     },
   });
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, error }] = useLoginMutation();
   const navigate = useNavigate();
-  const [error, setError] = useState("");
+  const [errorState, setError] = useState("");
   const [triggerCurrentQuery] = useLazyCurrentQuery();
 
   const onSubmit = async (data: Login) => {
@@ -65,7 +66,7 @@ export const InputsForLogin: React.FC = () => {
         type="password"
         placeholder="пароль"
       />
-      <ErrorMessage error={error} />
+      <ErrorMessage error={errorState} />
       <button type="submit">
         {isLoading ? <BarLoader color="#A2A2FF" /> : "Войти"}
       </button>

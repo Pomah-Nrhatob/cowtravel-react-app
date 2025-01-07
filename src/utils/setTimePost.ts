@@ -5,7 +5,7 @@ export const setTimeToPost = (date: Date): string => {
   moment.locale("ru");
   const datePost = moment(new Date(date));
   const dateNow = moment(new Date());
-  if (dateNow.diff(datePost, "year") > 0) {
+  if (moment(new Date()).year() !== moment(new Date(date)).year()) {
     return (
       moment(datePost).format("LL") + " в " + moment(datePost).format("HH:mm")
     );

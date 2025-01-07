@@ -22,6 +22,8 @@ import { ContentEditor } from "../contentEditor";
 import { selectChapters } from "../../../features/chaptersSlice";
 import { Tooltip, TooltipRefProps } from "react-tooltip";
 import useOutsideAlerter from "../../../utils/useOutsideAlertet";
+import { toast, ToastContainer } from "react-toastify";
+import { hasErrorField } from "../../../utils/hasErrorfield";
 
 export const EditorTravel: React.FC = () => {
   const id = useLocation().pathname.split("/")[2];
@@ -91,13 +93,41 @@ export const EditorTravel: React.FC = () => {
   const [getTravel, { isLoading }] = useLazyGetOneTravelQuery();
   const [getChapters] = useLazyGetChaptersQuery();
   const chapters = useSelector(selectChapters);
+  const [errorState, setErrorState] = useState<string>("");
+
+  const successUpdate = () =>
+    toast.success("Изменения сохранены", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+  const errorUpdate = () =>
+    toast.error(errorState, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   const handleSave = async (data: Travel) => {
     try {
       await updateTravel(data).unwrap();
+      successUpdate();
       reset({ ...data });
     } catch (error) {
-      console.log(error);
+      if (hasErrorField(error)) {
+        setErrorState(error.data.message);
+      }
     }
   };
 
@@ -173,6 +203,7 @@ export const EditorTravel: React.FC = () => {
             travelId={travelInfo.id}
           />
         )}
+        <ToastContainer />
       </div>
       <ContentEditor travelId={id} />
     </>

@@ -10,8 +10,7 @@ import styles from "./index.module.css";
 
 export const MainPageContainer = () => {
   const location = useLocation();
-  const [getPublishedTravels, { isLoading, isError }] =
-    useLazyGetPublishedTravelsQuery();
+  const [getPublishedTravels] = useLazyGetPublishedTravelsQuery();
 
   const publishedTravels = useSelector(selectPublishedTravels);
 
@@ -19,6 +18,7 @@ export const MainPageContainer = () => {
     getPublishedTravels(
       `?page=${location.pathname.split("page")[1] || 1}`
     ).unwrap();
+
     window.scrollTo(0, 0);
   }, [location]);
 
