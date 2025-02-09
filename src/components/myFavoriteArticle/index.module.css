@@ -1,0 +1,20 @@
+.favoriteArticleList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favoriteArticleList > h1 {
+  margin-left: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(118, 117, 117);
+  margin-top: 30px;
+}
+
+.favoriteArticleList > span {
+  margin-top: 30%;
+  margin-left: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  color: rgba(128, 128, 128, 0.682);
+}

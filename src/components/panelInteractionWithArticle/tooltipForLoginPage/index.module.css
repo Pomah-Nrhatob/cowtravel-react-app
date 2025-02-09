@@ -1,0 +1,13 @@
+.tooltip {
+  border: 1px solid rgb(169, 169, 169);
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: black;
+  width: 230px;
+  padding: 7px;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0.5px 0.5px 1px rgb(167, 167, 167);
+  margin-bottom: -15px;
+  overflow: visible;
+}

@@ -19,6 +19,7 @@ import { AfterActivatePage } from "./features/login/AfterActivatePage";
 import { AuthActivate } from "./pages/AuthActivate.tsx";
 import { ForgotPasswordPage } from "./pages/forgotPassword";
 import { ResetPasswordPage } from "./pages/resetPassword";
+import { MyFavoriteArticlePage } from "./pages/myFavoriteArticlePage/index.tsx";
 
 const container = document.getElementById("root");
 
@@ -49,11 +50,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <MainPage />,
+        element: <MainPage title="Cowtravel.ru - журнал ваших путешествий" />,
       },
       {
         path: "/:pageNumber/",
-        element: <MainPage />,
+        element: <MainPage title="Cowtravel.ru - журнал ваших путешествий" />,
       },
       {
         path: "/edittravels",
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/user/:id",
         element: <UserProfilePage />,
+      },
+      {
+        path: "/user/favoriteArticle",
+        element: <MyFavoriteArticlePage />,
       },
     ],
   },

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { FC, useEffect } from "react";
 import { MainPageContainer } from "../../components/mainPage";
 
-export const MainPage = () => {
+type Props = {
+  title: string;
+};
+
+export const MainPage: FC<Props> = ({ title }) => {
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   return (
     <>
       <MainPageContainer />

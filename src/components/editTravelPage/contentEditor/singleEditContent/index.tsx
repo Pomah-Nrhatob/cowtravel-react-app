@@ -60,18 +60,6 @@ export const SingleEditContent: React.FC<Props> = ({
   const [createChapter] = useCreateChapterMutation();
   const [deleteChapter] = useDeleteChapterMutation();
 
-  const successSaveChapter = () =>
-    toast.success("Изменения сохранены", {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
   const handleSave = async (data: Chapter) => {
     if (isDirty) {
       try {
@@ -79,7 +67,6 @@ export const SingleEditContent: React.FC<Props> = ({
           ...data,
           id: id,
         }).unwrap();
-        successSaveChapter();
       } catch (error) {
         console.log(error);
       }
@@ -160,7 +147,6 @@ export const SingleEditContent: React.FC<Props> = ({
           control={control}
           defaultValue=""
         />
-        <ToastContainer />
         {id ? (
           <div className={styles.upload_file_main}>
             <Upload chapterId={id} />

@@ -12,6 +12,9 @@ export const ArticleList: FC<Props> = ({ articleList }) => {
       {articleList.map((article, index) => {
         return (
           <SingleArticle
+            isFavoriteCount={article.isFavoriteCount}
+            rating={article.rating}
+            viewCount={article.viewCount}
             dateTravel={article.dateTravel}
             authorId={article.authorId}
             userName={article.userName}

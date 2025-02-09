@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { User } from "../app/types";
 import { userApi } from "../app/services/usersApi";
 import { RootState } from "../app/store";
@@ -23,8 +23,49 @@ const slice = createSlice({
   initialState,
   reducers: {
     logout: () => initialState,
+
     resetUser: (state) => {
       state.user = null;
+    },
+
+    likeArticleReducer: (state, action) => {
+      state.current?.isLikeArticles.push(action.payload);
+    },
+
+    disLikeArticleReducer: (state, action) => {
+      if (state.current) {
+        return {
+          ...state,
+          current: {
+            ...state.current,
+            isLikeArticles: [
+              ...state.current.isLikeArticles.filter(
+                (p) => p !== action.payload
+              ),
+            ],
+          },
+        };
+      }
+    },
+
+    addFavoriteArticleReducer: (state, action) => {
+      state.current?.favoriteArticles.push(action.payload);
+    },
+
+    deleteFavoriteArticleReducer: (state, action) => {
+      if (state.current) {
+        return {
+          ...state,
+          current: {
+            ...state.current,
+            favoriteArticles: [
+              ...state.current.favoriteArticles.filter(
+                (p) => p !== action.payload
+              ),
+            ],
+          },
+        };
+      }
     },
   },
   extraReducers: (builder) => {
@@ -50,7 +91,14 @@ const slice = createSlice({
   },
 });
 
-export const { logout, resetUser } = slice.actions;
+export const {
+  logout,
+  resetUser,
+  likeArticleReducer,
+  disLikeArticleReducer,
+  addFavoriteArticleReducer,
+  deleteFavoriteArticleReducer,
+} = slice.actions;
 export default slice.reducer;
 
 export const selectisAuthenticated = (state: RootState) =>

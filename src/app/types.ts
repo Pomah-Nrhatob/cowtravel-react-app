@@ -8,6 +8,8 @@ export type User = {
   role: string;
   createdAt: Date;
   updatedAt: Date;
+  isLikeArticles: string[];
+  favoriteArticles: string[];
   token?: string;
   user?: any;
 };
@@ -66,6 +68,9 @@ export type ArticleTravel = {
   updateAt: Date | null;
   userName: string | null;
   imagePath: string | null;
+  isFavoriteCount: number | null;
+  rating: number | null;
+  viewCount: number | null;
 };
 
 export type ArticleChapter = {

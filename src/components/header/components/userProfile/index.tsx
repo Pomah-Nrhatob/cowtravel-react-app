@@ -5,6 +5,8 @@ import styles from "./index.module.css";
 import { BsThreeDots } from "react-icons/bs";
 import { UserInfoModal } from "./UserInfoModal";
 import useOutsideAlerter from "../../../../utils/useOutsideAlertet";
+import { TiPencil } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   userInfo: { name: string; id: number } | null;
@@ -13,6 +15,15 @@ type Props = {
 export const UserProfile: React.FC<Props> = ({ userInfo }) => {
   const [triggerLogoutQuery] = useLazyLogoutQuery();
   const [userInfoModalState, setUserInfoModalState] = useState<boolean>(false);
+  const [orientationState, setOrientationState] = useState<number>(
+    document.documentElement.clientWidth
+  );
+  const navigate = useNavigate();
+
+  window.addEventListener("resize", function (e) {
+    setOrientationState(document.documentElement.clientWidth);
+  });
+
   const wrapperRef = useRef(null);
 
   const onClickLogout = async () => {
@@ -39,7 +50,16 @@ export const UserProfile: React.FC<Props> = ({ userInfo }) => {
 
   return (
     <div className={styles.userProfile_main}>
-      <HeaderLink name="Мои путешествия" link="edittravels" />
+      {orientationState > 450 ? (
+        <HeaderLink name="Мои путешествия" link="edittravels" />
+      ) : (
+        <TiPencil
+          onClick={() => {
+            navigate("/edittravels");
+          }}
+          size={"1.5rem"}
+        />
+      )}
       <BsThreeDots
         onClick={handleOpenModal}
         size={"1.5rem"}

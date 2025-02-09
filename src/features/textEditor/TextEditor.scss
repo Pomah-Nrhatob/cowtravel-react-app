@@ -65,9 +65,10 @@
     }
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 350px;
+    min-height: 250px;
+    // height: 350px;
     color: inherit;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 
   position: relative;

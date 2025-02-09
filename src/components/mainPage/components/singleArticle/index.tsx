@@ -6,6 +6,7 @@ import { ArticleInfo } from "./articleInfo";
 import { Content } from "./content";
 import { PanelBtn } from "./panelBtn";
 import { ImageForMainPage } from "../../../../app/types";
+import { PanelInteractionWithArticle } from "../../../panelInteractionWithArticle";
 
 type Props = {
   id: string;
@@ -17,6 +18,9 @@ type Props = {
   createdAt: Date;
   updateAt: Date;
   imagePath: string | null;
+  isFavoriteCount: number | null;
+  rating: number | null;
+  viewCount: number | null;
 };
 
 export const SingleArticle: FC<Props> = ({
@@ -29,6 +33,9 @@ export const SingleArticle: FC<Props> = ({
   createdAt,
   updateAt,
   imagePath,
+  isFavoriteCount,
+  rating,
+  viewCount,
 }) => {
   return (
     <div className={styles.singleArticle_main}>
@@ -43,6 +50,12 @@ export const SingleArticle: FC<Props> = ({
         <ArticleInfo countries={countries} dateTravel={dateTravel} />
         <Content imagePath={imagePath} />
         <PanelBtn id={id} />
+        <PanelInteractionWithArticle
+          articleId={id}
+          isFavoriteCount={isFavoriteCount}
+          viewCount={viewCount}
+          rating={rating}
+        />
       </div>
     </div>
   );

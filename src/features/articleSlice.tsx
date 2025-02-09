@@ -21,6 +21,9 @@ const initialState: InitialState = {
     updateAt: null,
     userName: null,
     imagePath: null,
+    isFavoriteCount: null,
+    rating: null,
+    viewCount: null,
   },
   publishedChapters: [],
 };

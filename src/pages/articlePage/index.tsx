@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArticlePageContainer } from "../../components/articlePage";
 
 export const ArticlePage = () => {

@@ -1,0 +1,64 @@
+.panel_main {
+  margin-left: 15px;
+  margin-top: 10px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.btn {
+  color: rgba(128, 128, 128, 0.521);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn_view {
+  color: rgba(128, 128, 128, 0.521);
+}
+
+.btn:hover {
+  color: rgba(170, 33, 33, 0.645);
+}
+
+.btn_active {
+  color: rgba(170, 33, 33, 0.645);
+  cursor: pointer;
+}
+
+.btn_main {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.btn_main > div {
+  width: 15px;
+}
+
+.btn_main > svg {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.btn_main > svg:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.span {
+  font-family: "Montserrat", sans-serif;
+  color: rgba(0, 0, 0, 0.821);
+}
+
+.span_active {
+  font-family: "Montserrat", sans-serif;
+  color: rgba(189, 26, 26, 0.645);
+}
+
+.tooltip_rounded {
+  background-color: #3f3f3f00 !important;
+}
